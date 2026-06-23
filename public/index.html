@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Consent Cookie Auditor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Consent Cookie Auditor</h1>
+
+    <p class="intro">
+      Enter a website URL. The app will load the page in a clean browser session
+      without clicking consent, then report whether monitored marketing cookies
+      were set.
+    </p>
+
+    <section class="card">
+      <label for="urlInput">Website URL</label>
+      <input id="urlInput" type="text" placeholder="https://example.com" />
+
+      <label for="waitSeconds">Wait after page load, in seconds</label>
+      <input id="waitSeconds" type="number" value="6" min="1" max="30" />
+
+      <button id="runAuditBtn">Run Audit</button>
+    </section>
+
+    <section class="card">
+      <h2>Audit Results</h2>
+      <div id="statusBox">No audit run yet.</div>
+      <div id="summaryBox"></div>
+
+      <h3>Monitored Cookies Set Without Consent</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Cookie Name</th>
+            <th>Tool Match</th>
+            <th>Domain</th>
+            <th>SameSite</th>
+            <th>Secure</th>
+          </tr>
+        </thead>
+        <tbody id="matchedCookiesBody"></tbody>
+      </table>
+
+      <h3>Possible Marketing/Analytics Network Requests</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Resource Type</th>
+            <th>Method</th>
+            <th>URL</th>
+          </tr>
+        </thead>
+        <tbody id="networkRequestsBody"></tbody>
+      </table>
+
+      <h3>All Cookies</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Cookie Name</th>
+            <th>Domain</th>
+            <th>Matched?</th>
+            <th>Value Preview</th>
+          </tr>
+        </thead>
+        <tbody id="allCookiesBody"></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Cookie Rules</h2>
+
+      <p class="section-note">
+        Add or remove cookie patterns here. These rules control which cookies are flagged in the audit results above.
+      </p>
+
+      <div class="rule-form">
+        <input id="toolInput" type="text" placeholder="Tool, e.g. Google Analytics" />
+        <input id="patternInput" type="text" placeholder="Cookie pattern, e.g. _ga*" />
+        <input id="categoryInput" type="text" placeholder="Category, e.g. Analytics" />
+        <button id="addRuleBtn">Add Rule</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Cookie Pattern</th>
+            <th>Category</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="rulesTableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
