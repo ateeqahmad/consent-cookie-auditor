@@ -201,4 +201,4 @@ Possible future improvements:
 
 ## Disclaimer
 
-This project is provided for technical auditing and educational purposes. It is not legal advice. Consult a qualified privacy professional or attorney for legal interpretation of consent compliance.
+This project is provided for technical auditing and educational purposes. It is not legal advice. Consult a qualified privacy professional or attorney for legal interpretation of consent compliance. This document is written using ChatGPT and reviewed by me. I own complete responsibility for it.
